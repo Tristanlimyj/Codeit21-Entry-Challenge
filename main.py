@@ -7,7 +7,7 @@ Assumptions
 from classes.robot_rates import RobotRates
 from classes.counter import Counter
 from datetime import timedelta
-from tests.input_test import *
+from tests.input_test import input_set_1,input_set_2,input_set_3,input_set_4,input_set_5
 
 def rate_calculator(robot_work_data) -> dict:
   # get the rate & shift details
@@ -20,7 +20,6 @@ def rate_calculator(robot_work_data) -> dict:
                             rates_data['extraNight']
                           )
   counter = Counter(shift_data['start'],shift_data['end'])
-
   # Check if it counter is 0
   while counter.time_left != 0:
     # Get current rate obj
@@ -48,8 +47,8 @@ def rate_calculator(robot_work_data) -> dict:
 
 
 if __name__ == "__main__":
-  '''print('Input Set 1:', rate_calculator(input_set_1))
+  print('Input Set 1:', rate_calculator(input_set_1))
   print('Input Set 2:', rate_calculator(input_set_2))
   print('Input Set 3:', rate_calculator(input_set_3))
-  print('Input Set 4:', rate_calculator(input_set_4))'''
+  print('Input Set 4:', rate_calculator(input_set_4))
   print('Input Set 5:', rate_calculator(input_set_5))

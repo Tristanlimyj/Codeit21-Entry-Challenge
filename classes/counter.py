@@ -31,24 +31,25 @@ class Counter():
     # unused break
     # time worked
     self.time_since_break += time_worked
-    time_worked
+    
     # Check if there is any unused break
     if self.unused_break > 0: 
-      time_worked -=self.unused_break
+      time_worked -= self.unused_break
+      self.time_since_break -= self.unused_break
       self.unused_break = 0
-      self.time_since_break = 0
-    
+      
     # is there a break?
     # how much break time
-  
-    if self.time_since_break >= 480:
+    total_break_time = 0
+
+    while self.time_since_break >= 480:
       break_used_now = min(self.time_since_break - 480, 60)
       self.unused_break = 60 - break_used_now
+      total_break_time += break_used_now
 
       self.time_since_break = self.time_since_break - break_used_now - 480
 
-      return time_worked - break_used_now      
-    return time_worked
+    return time_worked - total_break_time
 
 
   def shift_less_than_24hr(self):
